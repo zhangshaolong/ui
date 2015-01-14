@@ -19,7 +19,7 @@ define(function (require) {
         this.delegateEvents = [];
         this.afterRenders = [];
         this.eventsHandlers = options.eventsHandlers || {};
-        this.template = '';
+        this.template = options.template || '';
     };
     Control.prototype.compileTemplate = function () {
         console.log('compileTemplate');
@@ -64,7 +64,6 @@ define(function (require) {
                 handlerQueue.push(delegateEvent[eventType]);
             }
         }
-        
     };
     Control.prototype.registerPluginMethods = function () {
         console.log('registerPluginMethods');
@@ -103,5 +102,6 @@ define(function (require) {
             }
         }.bind(this);
     };
+
     return Control;
 });

@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+</style>
+</head>
+<body>
+<div id="div"></div>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/2-0-0/esl.js"></script>
+<script>
+    require.config({
+        'baseUrl': './',
+        'packages': [
+            {
+                'name': 'Control',
+                'location': '../src',
+                'main': 'Control'
+            },
+            {
+                'name': 'Plugin',
+                'location': '../src',
+                'main': 'Plugin'
+            },
+            {
+                'name': 'utils',
+                'location': '../src/lib',
+                'main': 'utils'
+            },
+        ]
+    });
+    require(['Table', 'TableSort', 'TableEdit'], function (Table, TableSort, TableEdit) {
+        var control = new Table({
+            plugins: [TableSort, TableEdit]
+        });
+        control.main.style.cssText = 'height: 200px;overflow:auto;'
+        //control.test();
+        //console.log(control.aaa());
+        //control.dispose();
+    })
+</script>
+</body>
+</html>
